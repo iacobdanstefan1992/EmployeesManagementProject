@@ -16,11 +16,11 @@ public interface DepartmentRepository extends JpaRepository<Department,Integer> 
     @Override
     Optional<Department> findById(Integer integer);
 
-    @Query(value = "SELECT * FROM Department ORDER BY department_name ASC",
+    @Query(value = "SELECT * FROM Departments ORDER BY department_name ASC",
             nativeQuery = true)
     List<Department> OrderByDepartmentName();
 
-    @Query(value = "SELECT * FROM Department WHERE department_id = :id ORDER BY department_name DESC",
+    @Query(value = "SELECT * FROM Departments WHERE department_id = :id ORDER BY department_name DESC",
             nativeQuery = true)
     Department FindByWhereMethod(@Param("id") int id);
 }

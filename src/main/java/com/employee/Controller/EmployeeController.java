@@ -20,7 +20,8 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/employees")
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 
     @Autowired

@@ -18,7 +18,8 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/departments")
+@RequestMapping("/departments")
+@CrossOrigin(origins = "*")
 public class DepartmentController {
 
     @Autowired

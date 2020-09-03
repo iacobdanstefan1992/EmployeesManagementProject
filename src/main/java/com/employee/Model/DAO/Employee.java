@@ -20,10 +20,10 @@ public class Employee { // Here, I created a table with many columns with one pr
     @Column(name = "isManager")
     private int isManager;
     @Column(name = "startDate")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate startDate;
     @Column(name = "endDate")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     @Column(name = "active")
     private int active;
@@ -36,7 +36,7 @@ public class Employee { // Here, I created a table with many columns with one pr
     @Column(name = "email")
     private String email;
     @Column(name = "birthday")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     @Column(name = "noChildren")
     private int noChildren;
@@ -228,16 +228,16 @@ public class Employee { // Here, I created a table with many columns with one pr
         this.hasDrivingLicence = hasDrivingLicence;
     }
 
-    public Department getDepartment() {
-        return department;
+    public String getDepartment() {
+        return department.getDepartmentName();
     }
 
     public void setDepartment(Department department) {
         this.department = department;
     }
 
-    public JobCategory getJobCategory() {
-        return jobCategory;
+    public String getJobCategory() {
+        return jobCategory.getJobCategoryName();
     }
 
     public void setJobCategory(JobCategory jobCategory) {

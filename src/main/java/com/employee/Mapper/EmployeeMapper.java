@@ -15,14 +15,26 @@ public class EmployeeMapper { // This mapper is used to take some information fr
     public EmployeeDTO convertToEmployeeDTO(Employee employee){
 
         EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setId(employee.getId());
         employeeDTO.setFirstName(employee.getFirstName());
         employeeDTO.setLastName(employee.getLastName());
-        employeeDTO.setDepartment(employee.getDepartment().getDepartmentId());
-        employeeDTO.setJobCategory(employee.getJobCategory().getJobCategoryId());
+        employeeDTO.setDepartment(employee.getDepartment());
+        employeeDTO.setJobCategory(employee.getJobCategory());
         employeeDTO.setStartDate(employee.getStartDate());
         employeeDTO.setEndDate(employee.getEndDate());
         employeeDTO.setIsManager(employee.getIsManager());
         employeeDTO.setActive(employee.getActive());
+        employeeDTO.setAddress(employee.getAddress());
+        employeeDTO.setBirthday(employee.getBirthday());
+        employeeDTO.setCp(employee.getCp());
+        employeeDTO.setEmail(employee.getEmail());
+        employeeDTO.setFullName(employee.getFullName());
+        employeeDTO.setHasDrivingLicence(employee.getHasDrivingLicence());
+        employeeDTO.setNoChildren(employee.getNoChildren());
+        employeeDTO.setSalary(employee.getSalary());
+        employeeDTO.setSocialSecurityNumber(employee.getSocialSecurityNumber());
+        employeeDTO.setStudies(employee.getStudies());
+        employeeDTO.setTelephone(employee.getTelephone());
 
         return employeeDTO;
     }

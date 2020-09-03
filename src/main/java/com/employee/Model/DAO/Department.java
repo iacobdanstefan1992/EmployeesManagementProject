@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "department") // The Department Table show us department id and department name
+@Table(name = "departments") // The Department Table show us department id and department name
 public class Department {
 
     @Id

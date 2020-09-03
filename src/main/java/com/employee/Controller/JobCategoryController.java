@@ -19,7 +19,8 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/job_categories")
+@RequestMapping("/job_categories")
+@CrossOrigin(origins = "*")
 public class JobCategoryController {
 
     @Autowired
