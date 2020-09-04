@@ -175,7 +175,7 @@ public class DepartmentController {
             ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).body(department1);
             logger.log(Level.INFO,"This department is in our database.");
             return new ResponseEntity<String>("This department was found! \n" +
-                    "Department Name : "+department1.getDepartmentName()+"\n"+
+                    "Department Name : "+department1.getName()+"\n"+
                     "Department Employees : "+department1.getEmployees()+"\n"
                     ,HttpStatus.OK);
         }catch (NoSuchElementException e){

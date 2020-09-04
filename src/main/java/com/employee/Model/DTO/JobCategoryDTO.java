@@ -3,22 +3,32 @@ package com.employee.Model.DTO;
 import java.util.List;
 
 public class JobCategoryDTO { // This table will get some information from JobCategory Table
-    private String jobCategoryName;
+    private int id;
+    private String name;
     private List<String> employees;
 
-    public JobCategoryDTO(String jobCategoryName, List<String> employees) {
-        this.jobCategoryName = jobCategoryName;
+    public JobCategoryDTO(int id, String name, List<String> employees) {
+        this.id = id;
+        this.name = name;
         this.employees = employees;
     }
 
     public JobCategoryDTO(){}
 
-    public String getJobCategoryName() {
-        return jobCategoryName;
+    public int getId() {
+        return id;
     }
 
-    public void setJobCategoryName(String jobCategoryName) {
-        this.jobCategoryName = jobCategoryName;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<String> getEmployees() {
@@ -32,7 +42,8 @@ public class JobCategoryDTO { // This table will get some information from JobCa
     @Override
     public String toString() {
         return "JobCategoryDTO{" +
-                "jobCategoryName='" + jobCategoryName + '\'' +
+                ", id=" + id +
+                ", name=" + name +
                 ", employees=" + employees +
                 '}';
     }

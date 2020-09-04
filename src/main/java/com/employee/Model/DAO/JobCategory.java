@@ -25,6 +25,12 @@ public class JobCategory { // The JobCategory Table show us job category id and 
         this.employees = employees;
     }
 
+    public JobCategory(int jobCategoryId, String jobCategoryName) {
+        super();
+        this.jobCategoryId = jobCategoryId;
+        this.jobCategoryName = jobCategoryName;
+    }
+
     public JobCategory() {
         super();
     }

@@ -58,7 +58,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/updateEmployee/{id_employee}") // This method will update an employee from our database
-    public Employee updateEmployee(@RequestBody Employee employee, @PathVariable int id_employee){
+    public void updateEmployee(@RequestBody EmployeeDTO employee, @PathVariable int id_employee){
         Employee employee2;
         try{
             Employee employee1 = employeeService.findEmployeeById(employee.getId());
@@ -67,13 +67,12 @@ public class EmployeeController {
                 throw new EmployeeNotFoundException(employee.getId());
             }else{
                 logger.log(Level.INFO,"A new employee was updated.");
-                employee2 = this.employeeService.updateEmployee(employee,id_employee);
+                this.employeeService.updateEmployee(employee,id_employee);
             }
         }catch (NoSuchElementException e){
                 logger.log(Level.SEVERE,"Exception error : " + e);
                 throw new EmployeeNotFoundException(employee.getId());
         }
-        return employee2;
     }
 
     @DeleteMapping("/deleteEmployee/{id}") // This method will delete an employee from our database
@@ -175,7 +174,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getEmployeeDtoById/{id}") // This method will find an employee by id from our database
-    public ResponseEntity<String> getEmployeeDtoById(@PathVariable int id){
+    public ResponseEntity<EmployeeDTO> getEmployeeDtoById(@PathVariable int id){
         Employee employee;
         EmployeeDTO employee1;
         try{
@@ -183,22 +182,10 @@ public class EmployeeController {
             employee1 = this.employeeMapper.convertToEmployeeDTO(employee);
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.add("Responded","getEmployeeDtoById");
-            ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).body(employee1);
-            logger.log(Level.INFO,"This employee is in our database.");
-            return new ResponseEntity<String>("This employee was found! \n" +
-                    "First Name : "+employee1.getFirstName()+"\n"+
-                    "Last Name : "+employee1.getLastName()+"\n"+
-                    "Department : "+employee1.getDepartment()+"\n"+
-                    "JobCategory : "+employee1.getJobCategory()+"\n"+
-                    "Start Date : "+employee1.getStartDate()+"\n"+
-                    "End Date : "+employee1.getEndDate()+"\n"+
-                    "Manager : "+employee1.getIsManager()+"\n"+
-                    "Active : "+employee1.getActive()+"\n"
-                    ,HttpStatus.OK);
+            return ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).body(employee1);
         }catch (NoSuchElementException e){
             logger.log(Level.WARNING,"This employee was not found.");
-            return new ResponseEntity<String>("This employee was not found!\n" +
-                    "Error is 404", HttpStatus.NOT_FOUND);
+            throw new EmployeeNotFoundException(id);
         }
     }
 

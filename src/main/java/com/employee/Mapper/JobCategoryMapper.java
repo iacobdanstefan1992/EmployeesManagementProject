@@ -19,7 +19,8 @@ public class JobCategoryMapper { // This mapper is used to take some information
         JobCategoryDTO jobCategoryDTO = new JobCategoryDTO();
         List<String> employees = jobCategory.getEmployees().stream().map(Employee::getFullName).collect(Collectors.toList());
 
-        jobCategoryDTO.setJobCategoryName(jobCategory.getJobCategoryName());
+        jobCategoryDTO.setName(jobCategory.getJobCategoryName());
+        jobCategoryDTO.setId(jobCategory.getJobCategoryId());
         jobCategoryDTO.setEmployees(employees);
 
         return jobCategoryDTO;

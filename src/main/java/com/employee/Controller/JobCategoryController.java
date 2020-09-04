@@ -176,7 +176,7 @@ public class JobCategoryController {
             ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).body(jobCategoryDTO);
             logger.log(Level.INFO,"This jobCategory is in our database.");
             return new ResponseEntity<String>("This jobCategory was found! \n" +
-                    "JobCategory Name : "+jobCategoryDTO.getJobCategoryName()+"\n"+
+                    "JobCategory Name : "+jobCategoryDTO.getName()+"\n"+
                     "JobCategory Employees : "+jobCategoryDTO.getEmployees()+"\n"
                     ,HttpStatus.OK);
         }catch (NoSuchElementException e){

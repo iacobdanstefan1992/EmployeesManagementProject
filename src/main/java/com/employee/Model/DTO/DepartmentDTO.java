@@ -3,22 +3,32 @@ package com.employee.Model.DTO;
 import java.util.List;
 
 public class DepartmentDTO { // This table will get some information from Department Table
-    private String departmentName;
+    private int id;
+    private String name;
     private List<String> employees;
 
-    public DepartmentDTO(String departmentName, List<String> employees) {
-        this.departmentName = departmentName;
+    public DepartmentDTO(int id, String name, List<String> employees) {
+        this.id = id;
+        this.name = name;
         this.employees = employees;
     }
 
     public DepartmentDTO(){}
 
-    public String getDepartmentName() {
-        return departmentName;
+    public int getId() {
+        return id;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<String> getEmployees() {
@@ -32,7 +42,8 @@ public class DepartmentDTO { // This table will get some information from Depart
     @Override
     public String toString() {
         return "DepartmentDTO{" +
-                "departmentName='" + departmentName + '\'' +
+                "id='" + id + '\'' +
+                "name='" + name + '\'' +
                 ", employees=" + employees +
                 '}';
     }

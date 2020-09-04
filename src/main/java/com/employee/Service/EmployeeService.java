@@ -1,6 +1,7 @@
 package com.employee.Service;
 
 import com.employee.Model.DAO.Employee;
+import com.employee.Model.DTO.EmployeeDTO;
 import com.employee.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,30 @@ public class EmployeeService {
         return this.employeeRepository.save(employee);
     }
 
-    public Employee updateEmployee(Employee employee, int id){
+    public void updateEmployee(EmployeeDTO employee, int id){
         Employee employee2 = this.employeeRepository.findById(id).get();
 
         if(employee2 != null){
-            employee.setId(id);
-            return this.employeeRepository.save(employee);
+            employee2.setId(employee.getId());
+            employee2.setFirstName(employee.getFirstName());
+            employee2.setLastName(employee.getLastName());
+            employee2.setStartDate(employee.getStartDate());
+            employee2.setEndDate(employee.getEndDate());
+            employee2.setIsManager(employee.getIsManager());
+            employee2.setActive(employee.getActive());
+            employee2.setAddress(employee.getAddress());
+            employee2.setBirthday(employee.getBirthday());
+            employee2.setCp(employee.getCp());
+            employee2.setEmail(employee.getEmail());
+            employee2.setFullName(employee.getFullName());
+            employee2.setHasDrivingLicence(employee.getHasDrivingLicence());
+            employee2.setNoChildren(employee.getNoChildren());
+            employee2.setSalary(employee.getSalary());
+            employee2.setSocialSecurityNumber(employee.getSocialSecurityNumber());
+            employee2.setStudies(employee.getStudies());
+            employee2.setTelephone(employee.getTelephone());
+
+            this.employeeRepository.save(employee2);
         }else{
             throw new RuntimeException("Employee was not found!");
         }

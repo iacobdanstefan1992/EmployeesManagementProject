@@ -88,6 +88,13 @@ public class Employee { // Here, I created a table with many columns with one pr
         this.fullName = fullName;
     }
 
+    public Employee(int id, String firstName, String lastName) {
+        super();
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public Employee() {
         super();
     }
@@ -228,16 +235,16 @@ public class Employee { // Here, I created a table with many columns with one pr
         this.hasDrivingLicence = hasDrivingLicence;
     }
 
-    public String getDepartment() {
-        return department.getDepartmentName();
+    public Department getDepartment() {
+        return department;
     }
 
     public void setDepartment(Department department) {
         this.department = department;
     }
 
-    public String getJobCategory() {
-        return jobCategory.getJobCategoryName();
+    public JobCategory getJobCategory() {
+        return jobCategory;
     }
 
     public void setJobCategory(JobCategory jobCategory) {

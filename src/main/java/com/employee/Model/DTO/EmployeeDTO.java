@@ -1,16 +1,13 @@
 package com.employee.Model.DTO;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDate;
 
 public class EmployeeDTO { // This table will get some information from Employee Table
     private int id;
     private String firstName;
     private String lastName;
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private String department;
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private String jobCategory;
+    private int department;
+    private int jobCategory;
     private LocalDate startDate;
     private LocalDate endDate;
     private int isManager;
@@ -27,7 +24,7 @@ public class EmployeeDTO { // This table will get some information from Employee
     private int hasDrivingLicence;
     private String fullName;
 
-    public EmployeeDTO(int id, String firstName, String lastName, String department, String jobCategory, LocalDate startDate, LocalDate endDate, int isManager, int active, String address, String cp, String telephone, String email, LocalDate birthday, int noChildren, double salary, String studies, String socialSecurityNumber, int hasDrivingLicence, String fullName) {
+    public EmployeeDTO(int id, String firstName, String lastName, int department, int jobCategory, LocalDate startDate, LocalDate endDate, int isManager, int active, String address, String cp, String telephone, String email, LocalDate birthday, int noChildren, double salary, String studies, String socialSecurityNumber, int hasDrivingLicence, String fullName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -164,19 +161,19 @@ public class EmployeeDTO { // This table will get some information from Employee
         this.lastName = lastName;
     }
 
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
-    public String getJobCategory() {
+    public int getJobCategory() {
         return jobCategory;
     }
 
-    public void setJobCategory(String jobCategory) {
+    public void setJobCategory(int jobCategory) {
         this.jobCategory = jobCategory;
     }
 

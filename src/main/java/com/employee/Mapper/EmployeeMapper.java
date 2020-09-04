@@ -18,8 +18,8 @@ public class EmployeeMapper { // This mapper is used to take some information fr
         employeeDTO.setId(employee.getId());
         employeeDTO.setFirstName(employee.getFirstName());
         employeeDTO.setLastName(employee.getLastName());
-        employeeDTO.setDepartment(employee.getDepartment());
-        employeeDTO.setJobCategory(employee.getJobCategory());
+        employeeDTO.setDepartment(employee.getDepartment().getDepartmentId());
+        employeeDTO.setJobCategory(employee.getJobCategory().getJobCategoryId());
         employeeDTO.setStartDate(employee.getStartDate());
         employeeDTO.setEndDate(employee.getEndDate());
         employeeDTO.setIsManager(employee.getIsManager());

@@ -20,7 +20,8 @@ public class DepartmentMapper { // This mapper is used to take some information 
         DepartmentDTO departmentDTO = new DepartmentDTO();
         List<String> employees = department.getEmployees().stream().map(Employee::getFullName).collect(Collectors.toList());
 
-        departmentDTO.setDepartmentName(department.getDepartmentName());
+        departmentDTO.setName(department.getDepartmentName());
+        departmentDTO.setId(department.getDepartmentId());
         departmentDTO.setEmployees(employees);
 
         return departmentDTO;
